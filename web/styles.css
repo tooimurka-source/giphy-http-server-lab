@@ -1,0 +1,220 @@
+:root {
+  --bg: #f4f6f8;
+  --panel: #ffffff;
+  --text: #18202f;
+  --muted: #657083;
+  --line: #d9e0ea;
+  --primary: #146b73;
+  --primary-dark: #0e5057;
+  --accent: #c4592c;
+  --error: #b42318;
+  --shadow: 0 16px 42px rgba(24, 32, 47, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+button, input { font: inherit; }
+
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.label {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1, h2, p { margin-top: 0; }
+
+h1 {
+  max-width: 720px;
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.06;
+}
+
+h2 { margin-bottom: 0; font-size: 1.18rem; }
+
+.subtitle {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.status-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbfd;
+}
+
+.status-box span, .panel-title span, small, dt { color: var(--muted); }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 0.9fr);
+  gap: 18px;
+}
+
+.panel {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 10px 28px rgba(24, 32, 47, 0.06);
+}
+
+.panel-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.panel-title span { font-size: 0.78rem; font-weight: 700; }
+
+.search-panel, .endpoint-panel, .result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.field input:focus {
+  outline: 3px solid rgba(20, 107, 115, 0.18);
+  border-color: var(--primary);
+}
+
+.error {
+  min-height: 22px;
+  margin-bottom: 0;
+  color: var(--error);
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  color: #ffffff;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+button:hover { background: var(--primary-dark); }
+
+button.secondary { color: var(--primary); background: #ffffff; }
+button.secondary:hover { color: #ffffff; background: var(--primary); }
+
+.gif-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 260px;
+  border: 1px dashed var(--primary);
+  border-radius: 8px;
+  background: #f0fafb;
+}
+
+.gif-frame img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+
+.gif-frame p {
+  margin: 0;
+  padding: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.meta div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+dt { margin-bottom: 6px; font-size: 0.8rem; }
+dd { overflow-wrap: anywhere; margin: 0; font-weight: 700; }
+
+pre {
+  overflow: auto;
+  min-height: 160px;
+  margin: 0;
+  padding: 14px;
+  border-radius: 8px;
+  color: #edf4f5;
+  background: #18202f;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .page { width: min(100% - 20px, 1120px); padding: 18px 0; }
+  .hero, .content-grid { display: flex; flex-direction: column; }
+  .hero { align-items: stretch; padding: 20px; }
+  .meta { grid-template-columns: 1fr; }
+  .actions button { width: 100%; }
+}

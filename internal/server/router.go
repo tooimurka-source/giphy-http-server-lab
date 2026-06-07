@@ -17,16 +17,10 @@ type searchRequest struct {
 
 func NewRouter(searcher GIFSearcher) *gin.Engine {
 	router := gin.Default()
+	router.Static("/static", "./web")
 
 	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"service": "giphy-http-server",
-			"routes": []string{
-				"GET /health",
-				"GET /api/gifs/search?q=cat",
-				"POST /api/gifs/search",
-			},
-		})
+		c.File("./web/index.html")
 	})
 
 	router.GET("/health", func(c *gin.Context) {
